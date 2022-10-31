@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cart</title>
+</head>
+<body>
+<h1> Корзина </h1>
+<h3> Продукты в корзине </h3>
+<div th:each="product : ${cart}">
+     <a th:href="@{'/product/' + ${product.getId()}}"><span th:text="${product}"></span></a>
+    <a th:href="@{'/cart/delete/' + ${product.getId()}}">   Убрать из корзины</a>
+</div>
+    <br>
+    <a th:href="@{'/product/all'}">Назад</a>
+</body>
+</html>
