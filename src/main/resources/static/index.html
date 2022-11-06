@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+    <title>Продукты</title>
+</head>
+<body>
+    <div class="container" ng-controller="indexController">
+        <h3>Список продуктов</h3>
+        <table class="table table-hover" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>ID</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Удаление</td>
+            </tr>
+            <tbody>
+            <tr ng-repeat="s in productList" >
+                <td>{{s.id}}</td>
+                <td>{{s.title}}</td>
+                <td>{{s.cost}}</td>
+                <td>
+                    <button ng-click="add(s.id)">Добавить</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Корзина</h3>
+        <table class="table table-hover" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>ID</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Удаление</td>
+            </tr>
+            <tbody>
+            <tr ng-repeat="s in cartList" >
+                <td>{{s.id}}</td>
+                <td>{{s.title}}</td>
+                <td>{{s.cost}}</td>
+                <td>
+                    <button ng-click="delete(s.id)">Удалить</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

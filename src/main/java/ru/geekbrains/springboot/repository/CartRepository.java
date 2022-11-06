@@ -25,11 +25,11 @@ public class CartRepository {
         return productsInCart;
     }
 
-    public void setProductsInCart(int id) {
+    public void setProductsInCart(Long id) {
         this.productsInCart.add(productRepository.getOnlyProduct(id));
     }
 
-    public void deleteProduct(int id) {
-        productsInCart.removeIf(p -> p.getId() == id);
+    public void deleteProduct(Long id) {
+        productsInCart.removeIf(p -> p.getId().equals(id));
     }
 }

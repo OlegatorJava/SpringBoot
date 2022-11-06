@@ -16,20 +16,28 @@ public class ProductRepository {
 
     @PostConstruct
     public void init(){
-        products.add(new Product(1, "Banana", 100));
-        products.add(new Product(2, "Bread", 150));
-        products.add(new Product(3, "Milk", 200));
-        products.add(new Product(4, "Cheese", 235));
-        products.add(new Product(5, "Apple", 91));
+        products.add(new Product(1L, "Banana", 100.00));
+        products.add(new Product(2L, "Bread", 150.00));
+        products.add(new Product(3L, "Milk", 200.00));
+        products.add(new Product(4L, "Cheese", 235.00));
+        products.add(new Product(5L, "Apple", 91.00));
     }
 
 
-    public Product getOnlyProduct(int id){
+    public Product getOnlyProduct(Long id){
         Product product = products.stream()
-                .filter(s -> s.getId() == id)
+                .filter(s -> s.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         return product;
+    }
+
+    public void delete(Long id){
+        Product product = products.stream()
+                .filter(s -> s.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        products.remove(product);
     }
 
 }
