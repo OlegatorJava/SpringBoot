@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class Product {
 
-    final int id;
+    final Long id;
     final String title;
-    final int cost;
+    final Double cost;
 
     @Override
     public String toString() {
